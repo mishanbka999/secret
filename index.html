@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Карина 💖</title>
   <style>
@@ -15,15 +15,20 @@
       align-items: center;
       height: 100vh;
       padding: 20px;
-      text-align: center;
+      text-align: left;
+    }
+
+    #container {
+      width: 100%;
+      max-width: 500px;
     }
 
     #text {
       border-right: 2px solid #ff69b4;
-      white-space: nowrap;
-      overflow: hidden;
+      white-space: pre-wrap; /* дозволяє перенос тексту */
+      overflow-wrap: break-word;
+      word-wrap: break-word;
       animation: blink 1s step-end infinite;
-      max-width: 100%;
     }
 
     @keyframes blink {
@@ -33,10 +38,15 @@
   </style>
 </head>
 <body>
-  <div id="text"></div>
+  <div id="container">
+    <div id="text"></div>
+  </div>
 
   <script>
-    const message = "Карина, я тебя очень сильно люблю, моя зайка. Ты самая красивая, добрая, весёлая и умная. Ты самая лучшая девушка во всём мире ❤️";
+    const message = `Карина, я тебя очень сильно люблю, моя зайка.
+Ты самая красивая, добрая, весёлая и умная.
+Ты самая лучшая девушка во всём мире ❤️`;
+    
     const textElement = document.getElementById("text");
     let index = 0;
 
@@ -44,7 +54,7 @@
       if (index < message.length) {
         textElement.textContent += message[index];
         index++;
-        setTimeout(typeText, 50);
+        setTimeout(typeText, 40); // скорость
       }
     }
 
