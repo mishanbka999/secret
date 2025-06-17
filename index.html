@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карина 💖</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ff69b4;
+      font-family: 'Courier New', monospace;
+      font-size: 1.2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #text {
+      border-right: 2px solid #ff69b4;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 1s step-end infinite;
+      max-width: 100%;
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #ff69b4; }
+    }
+  </style>
+</head>
+<body>
+  <div id="text"></div>
+
+  <script>
+    const message = "Карина, я тебя очень сильно люблю, моя зайка. Ты самая красивая, добрая, весёлая и умная. Ты самая лучшая девушка во всём мире ❤️";
+    const textElement = document.getElementById("text");
+    let index = 0;
+
+    function typeText() {
+      if (index < message.length) {
+        textElement.textContent += message[index];
+        index++;
+        setTimeout(typeText, 50);
+      }
+    }
+
+    typeText();
+  </script>
+</body>
+</html>
